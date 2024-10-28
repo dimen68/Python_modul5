@@ -1,11 +1,4 @@
 # Задача "Нужно больше этажей"
-def is_int(value):
-    return isinstance(value, int)
-
-
-def is_class_house(other):
-    return isinstance(other, House)
-
 
 class House:
     def __init__(self, name, floors):
@@ -19,42 +12,63 @@ class House:
         return 'Название: ' + str(self.name) + ', кол-во этажей: ' + str(self.number_of_floors)
 
     def __eq__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors == other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __lt__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors < other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __le__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors <= other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __gt__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors > other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __ge__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors >= other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __ne__(self, other):
-        if is_class_house(other):
+        if isinstance(other, House):
             return self.number_of_floors != other.number_of_floors
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self)} и {type(other)}')
 
     def __add__(self, value):
-        if is_int(value):
+        if isinstance(value, int):
             self.number_of_floors += value
+            return self
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self.number_of_floors)} и {type(value)}')
             return self
 
     def __radd__(self, value):
-        if is_int(value):
+        if isinstance(value, int):
             self.number_of_floors += value
+            return self
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self.number_of_floors)} и {type(value)}')
             return self
 
     def __iadd__(self, value):
-        if is_int(value):
+        if isinstance(value, int):
             self.number_of_floors += value
+            return self
+        else:
+            print(f'Действие невыполнимо, так как классы не одинаковые: {type(self.number_of_floors)} и {type(value)}')
             return self
 
     def go_to(self, new_floor):
@@ -65,8 +79,8 @@ class House:
             for i in range(1, new_floor + 1):
                 print(f'этаж {i}')
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     h1 = House('ЖК Эльбрус', 10)
     h2 = House('ЖК Акация', 20)
 
