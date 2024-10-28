@@ -21,7 +21,7 @@ class House:
         self.number_of_floors = floors
 
     def __del__(self):
-        print(f'{self.name} снесён, но он останется в истории')
+        print(f'    {self.name} снесён, но он останется в истории')
 
     def __len__(self):
         return self.number_of_floors
@@ -91,5 +91,5 @@ if __name__ == '__main__':
     del h3
 
     print(f'История построенных объектов: {House.houses_history}')
-    print(f'    Всего возведено {House.total_floors} этажей')
+    print(f'Всего возведено {House.total_floors} этажей')
     print(f'При закрытии проекта снести оставшиеся объекты')
